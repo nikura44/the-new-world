@@ -1,4 +1,13 @@
-import { createApp } from 'vue'
+import Vue from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import './assets/css/resetcs.css'
+// 引入echarts
+import * as echarts from 'echarts';
+Vue.prototype.$echarts = echarts;
+
+Vue.config.productionTip = false
+
+new Vue({
+  render: h => h(App),
+}).$mount('#app')

@@ -1,15 +1,19 @@
 <template>
   <div class="box">
-    <div class="left"><ContentSlot>nian</ContentSlot></div>
+    <div class="left">
+      <ContentSlot><EChartsTemplate /></ContentSlot>
+    </div>
   </div>
 </template>
 
 <script>
 import ContentSlot from "../components/content-slot.vue";
+import EChartsTemplate from "../components/echarts/echarts-template.vue";
 export default {
   name: "HelloWorld",
   components: {
     ContentSlot,
+    EChartsTemplate,
   },
   props: {
     msg: String,
@@ -20,6 +24,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .box {
+  padding: 0;
+  margin: 0;
   width: 100%;
   height: 100%;
   display: flex;

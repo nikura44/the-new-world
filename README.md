@@ -1,4 +1,4 @@
-# the-new-world
+# big-screen
 
 ## Project setup
 ```
@@ -22,4 +22,3 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-# the-new-world
