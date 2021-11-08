@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="left">
-      <ContentSlot><EChartsTemplate /></ContentSlot>
+      <ContentSlot class="echarts"><EChartsTemplate /></ContentSlot>
     </div>
   </div>
 </template>
@@ -34,5 +34,9 @@ export default {
 }
 .box .left {
   width: 22.9%;
+}
+.echarts{
+  display: flex;
+  justify-content: center;
 }
 </style>
