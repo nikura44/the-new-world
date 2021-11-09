@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-header>Header</el-header>
+    <el-container class="one-for-all">
+      <el-header class="top-menu">
+        <img src="./assets/logo.svg" class="logo"/><TopMenu class="top-menu-box"/></el-header>
       <el-container>
-        <el-aside width="200px"><SideMenu /></el-aside>
+        <el-aside class="side-menu" width=null><SideMenu /></el-aside>
         <el-container>
           <el-main><Home /></el-main>
-          <el-footer>Footer</el-footer>
         </el-container>
       </el-container>
     </el-container>
@@ -14,56 +14,29 @@
 </template>
 
 <script>
+import TopMenu from "./views/layout/TopMenu.vue";
 import SideMenu from "./views/layout/SideMenu.vue";
-import Home from './views/Home.vue'
+import Home from "./views/Home.vue";
 export default {
   components: {
     SideMenu,
-    Home
+    Home,
+    TopMenu,
   },
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style scoped>
+.one-for-all{
+  width: 100%;
+  height: 100vh;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
-  line-height: 60px;
-}
-
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
-}
 
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
+  /* text-align: center; */
   line-height: 160px;
 }
 
@@ -78,5 +51,24 @@ body > .el-container {
 
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
+}
+
+.top-menu{
+  padding-left: 0px;
+  padding-right: 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.logo{
+  padding: 10px;
+  width: 181px;
+}
+
+.side-menu{
+  /* display: flex;
+  justify-content: center; */
+  width: 201px;
 }
 </style>
