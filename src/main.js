@@ -13,6 +13,12 @@ import router from './router'
 // 设置全局的echarts变量
 Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false
+//引入markdown插件
+import mavonEditor from 'mavon-editor'
+//引入markdown插件的样式文件
+import 'mavon-editor/dist/css/index.css'
+
+Vue.use(mavonEditor)
 Vue.use(ElementUI);
 
 new Vue({

@@ -1,10 +1,11 @@
 <template>
   <el-menu
-    default-active="1-1"
+    :default-active="defaultRoute"
     class="el-menu-vertical-demo"
+    :router="true"
     @open="handleOpen"
     @close="handleClose"
-    :default-openeds=[]
+    
   >
     <el-submenu index="1">
       <template slot="title">
@@ -13,8 +14,8 @@
       </template>
       <el-menu-item-group>
         <template slot="title">前端相关</template>
-        <el-menu-item index="1-1" @click="gotoCss" route="">CSS</el-menu-item>
-        <el-menu-item index="1-2">JavaScript</el-menu-item>
+        <el-menu-item index="/" @click="gotoCss">CSS</el-menu-item>
+        <el-menu-item index="/blog_list">JavaScript</el-menu-item>
       </el-menu-item-group>
       <el-menu-item-group title="后端相关">
         <el-menu-item index="1-3">后端基础</el-menu-item>
@@ -41,6 +42,14 @@
 
 <script>
 export default {
+  created(){
+    console.log(this.$route.path)
+  },
+  computed: {
+    defaultRoute(){
+      return this.$route.path;
+    }
+  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -49,7 +58,7 @@ export default {
       console.log(key, keyPath);
     },
     gotoCss(){
-      console.log("go-to-css");
+      console.log(this.$route.path);
     }
   },
 };

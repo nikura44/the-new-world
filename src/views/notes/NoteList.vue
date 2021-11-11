@@ -1,4 +1,5 @@
 <template>
+<div class="box">
   <el-table :data="tableData" border style="width: 100%">
     <el-table-column fixed prop="date" label="日期" width="150">
     </el-table-column>
@@ -17,11 +18,19 @@
       </template>
     </el-table-column>
   </el-table>
+  <!-- <div style="text-align:center; margin-top:12px">
+      <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="1"
+      :page-sizes="[5,10,15,20]"
+      :page-size="10"
+      layout="total,sizes,prev,pager,next,jumper"
+      :total="0"
+      ></el-pagination>
+  </div> -->
+</div>
 </template>
-
-<script>
-export default {};
-</script>
 
 <script>
 export default {
