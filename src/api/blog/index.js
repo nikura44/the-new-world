@@ -2,8 +2,9 @@ import {
     server
 } from "../all-for-one"
 
-//metnod-name
-export const getSel=(data) => {
-    const url ="/"
-    return server('post',url,data)
+//metnod-name:getBlogList
+export const getBlogList = () => {
+    const url = "/getBlogList"
+    return server('GET', url, '')
 }
+

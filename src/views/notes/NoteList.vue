@@ -33,10 +33,20 @@
 </template>
 
 <script>
+import { getBlogList }  from '../../api/blog/index.js'
 export default {
   methods: {
     handleClick(row) {
       console.log(row);
+      getBlogList().then(
+          res => {
+              if(res.code === 200) {
+                  console.log(res)
+              } else {
+                  console.log(res.message)
+              }
+          } 
+      )
     },
   },
 
