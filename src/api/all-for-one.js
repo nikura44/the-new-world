@@ -4,7 +4,7 @@ import axios from 'axios'
 //     baseURL: "http://localhost:8080",
 //     timeout: 3000
 // })
-axios.defaults.baseURL = "/api"
+axios.defaults.baseURL = 'http://localhost:8080'
 function serverPost(url, data) {
     return new Promise((res, rej) => {
         axios.post(url, data).then(response => {

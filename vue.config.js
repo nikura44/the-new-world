@@ -6,17 +6,19 @@
 module.exports = {
     // 选项...
     devServer: {
-        hot: true,
-        host: '0.0.0.0',
-        port: 8088,
-        https: false,
-        open: true,
+        // open: process.platform === 'darwin',
+        // host: 'localhost',
+        port: 8071,
+        open: true, //配置自动启动浏览器 
         proxy: {
-            ['^/']: {
-                target: 'http://localhost:8080',
-                changeOrign: true,
-                ws: true
+            '/api': {
+                target: 'http://127.0.0.1:8080/', //对应自己的接口
+                changeOrigin: true,
+                ws: true,
+                pathRewrite: {
+                    '^/api': ''
+                }
             }
         }
-    }
+    },
 }
