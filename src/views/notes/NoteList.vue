@@ -33,12 +33,12 @@
 </template>
 
 <script>
-import { test }  from '../../api/blog/index.js'
+import { getBlogList }  from '../../api/api.js'
 export default {
   methods: {
     handleClick(row) {
       console.log(row);
-      test().then(
+      getBlogList().then(
           res => {
               if(res.code === 200) {
                   console.log(res)
