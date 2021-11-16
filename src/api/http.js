@@ -35,7 +35,7 @@ export function axios_get(url,params){
     return new Promise(
       (resolve,reject)=>{
         console.log(data);
-        axios.post(url,JSON.stringify(data))
+        axios.post(url,data)
           .then(res=>{
             console.log("封装信息的的res",res);
             resolve(res.data)
