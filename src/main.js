@@ -17,6 +17,8 @@ Vue.config.productionTip = false
 import mavonEditor from 'mavon-editor'
 //引入markdown插件的样式文件
 import 'mavon-editor/dist/css/index.css'
+//github-markdown-css
+import 'github-markdown-css/github-markdown.css'
 
 Vue.use(mavonEditor)
 Vue.use(ElementUI);

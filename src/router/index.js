@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import NoteList from '../views/notes/NoteList.vue'
 import Content from '../views/notes/Content.vue'
 import nodeHome from '../views/notes/index.vue'
+import NoteView from '../views/notes/NoteView.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -25,6 +26,10 @@ const routes = [
         path: '/blog_editor',
         name: 'Content',
         component : Content
+      },{
+        path: '/blog_content',
+        name: 'NoteView' ,
+        component : NoteView
       }
     ]
   },
