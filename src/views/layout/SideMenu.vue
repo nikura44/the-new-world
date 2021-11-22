@@ -18,7 +18,7 @@
         <el-menu-item index="/blog_list">JavaScript</el-menu-item>
       </el-menu-item-group>
       <el-menu-item-group title="后端相关">
-        <el-menu-item index="/blog_content">后端基础</el-menu-item>
+        <el-menu-item index="">后端基础</el-menu-item>
       </el-menu-item-group>
       <el-submenu index="1-4">
         <template slot="title">Java</template>

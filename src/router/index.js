@@ -6,31 +6,35 @@ import nodeHome from '../views/notes/index.vue'
 import NoteView from '../views/notes/NoteView.vue'
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     name: 'Home',
-    component : Content
+    component: Content
   },
   {
     path: '/Blog',
     name: 'Blog',
     component: nodeHome,
-    children :[
-      {
+    children: [{
         path: '/blog_list',
         name: 'NoteList',
-        component : NoteList
+        component: NoteList,
+        children: [{
+          path: 'blog_content',
+          name: 'NoteView',
+          component: NoteView,
+        }]
       },
       {
         path: '/blog_editor',
         name: 'Content',
-        component : Content
-      },{
-        path: '/blog_content',
-        name: 'NoteView' ,
-        component : NoteView
-      }
+        component: Content
+      }, 
+      // {
+      //   path: '/blog_content',
+      //   name: 'NoteView',
+      //   component: NoteView
+      // }
     ]
   },
 ]
