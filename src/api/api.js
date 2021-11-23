@@ -5,6 +5,8 @@ import { axios_post, axios_delete, axios_put} from './http.js'
 //按照格式确定方法名
 export const getBlogList = p => axios_post("/getBlogList", p);
 export const getBlogContent = p => axios_post("/getBlogContent", p);
+//提交新文章
+export const insertBlog = p => axios_post("/insertBlog", p);
 //向后端传输要修改数据的id
 export const user_updatad = p => axios_put("/user/user/?id="+p.id, p);	
 export const del = p => axios_delete("/user/user/", p );
