@@ -1,5 +1,7 @@
 <template>
   <div>
+    <el-backtop>
+    </el-backtop>
     <div class="box">
       <div class="title">
         <el-descriptions :column="3" border>
@@ -61,17 +63,20 @@
         </el-descriptions>
       </div>
       <Markdown :content="content" class="contents" />
+      <Comment />
     </div>
   </div>
 </template>
 
 <script>
 import Markdown from "./Markdown.vue";
+import Comment from "./Comnent.vue";
 import { getBlogContent } from "../../api/api.js";
 export default {
   name: "Home",
   components: {
     Markdown,
+    Comment,
   },
   props: {
     //必须是数字类型
