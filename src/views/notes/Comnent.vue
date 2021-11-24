@@ -20,16 +20,32 @@
     <el-divider> </el-divider>
     <div class="comment-list">
       <div class="block">
-        <!-- <el-timeline> -->
         <div v-for="item in items" :key="item.id" class="card">
-          <!-- <el-timeline-item :timestamp="item.timestamp" placement="top"> -->
           <el-card>
-            <h4>{{ item.content }}</h4>
-            <p>{{ item.submitUser }} 提交于 2018/4/12 20:46</p>
+            <div class="main-reply">
+              <div class="userImg-small"></div>
+              <span class="reply-username">{{ item.submitUser }}:</span>
+              <span class="reply-content-style">{{ item.content }}</span>
+              <span class="reply-time-style">{{ item.timestamp }}</span>
+              <el-link type="primary" class="reply-link">回复</el-link>
+            </div>
+            <div v-if="item.reply != null" class="reply">
+              <div v-for="something in item.reply" :key="something.id">
+                <el-card>
+                  <div class="reply-list">
+                    <div class="userImg-small"></div>
+                    <span class="reply-username"
+                      >{{ something.submitUser }} 回复 {{ something.replyWhos }}:</span
+                    >
+                    <span class="reply-content-style">{{ something.content }}</span>
+                    <span class="reply-time-style">{{ something.timestamp }}</span>
+                    <el-link type="primary" class="reply-link">回复</el-link>
+                  </div>
+                </el-card>
+              </div>
+            </div>
           </el-card>
-          <!-- </el-timeline-item> -->
         </div>
-        <!-- </el-timeline> -->
       </div>
     </div>
   </div>
@@ -47,6 +63,22 @@ export default {
           content: "yes you are good",
           submitUser: "north",
           timestamp: "2018/4/12 20:46",
+          reply: [
+            {
+              id: 1,
+              content: "stupid",
+              submitUser: "bob",
+              replyWhos: "north",
+              timestamp: "2018/4/12 20:46",
+            },
+            {
+              id: 2,
+              content: "who are you",
+              submitUser: "alice",
+              replyWhos: "bob",
+              timestamp: "2018/4/12 20:46",
+            },
+          ],
         },
         {
           id: 2,
@@ -59,6 +91,22 @@ export default {
           content: "谢谢,很有帮助",
           submitUser: "nicolas",
           timestamp: "2018/4/12 20:46",
+          reply: [
+            {
+              id: 1,
+              content: "stupid",
+              submitUser: "bob",
+              replyWhos: "north",
+              timestamp: "2018/4/12 20:46",
+            },
+            {
+              id: 2,
+              content: "who are you",
+              submitUser: "alice",
+              replyWhos: "bob",
+              timestamp: "2018/4/12 20:46",
+            },
+          ],
         },
         {
           id: 4,
@@ -90,6 +138,14 @@ export default {
   background: url("../../assets/user.jpeg") no-repeat center;
   background-size: 60px;
 }
+.userImg-small {
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/user.jpeg") no-repeat center;
+  background-size: 30px;
+  margin-right: 10px;
+}
 .input-line {
   display: flex;
   flex-direction: row;
@@ -103,7 +159,36 @@ export default {
   /* background-color: #C0C4CC; */
   padding: 20px;
 }
+.main-reply {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.reply-link {
+  margin-left: 10px;
+}
 .card {
   padding-bottom: 5px;
+}
+.reply {
+  padding-left: 40px;
+}
+.reply-time-style {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #606266;
+}
+.reply-content-style {
+  font-weight: bold;
+  margin-left: 10px;
+}
+.reply-username {
+  color: #606266;
+}
+.reply-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 </style>
