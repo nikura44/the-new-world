@@ -27,7 +27,31 @@
               <span class="reply-username">{{ item.submitUser }}:</span>
               <span class="reply-content-style">{{ item.content }}</span>
               <span class="reply-time-style">{{ item.timestamp }}</span>
-              <el-link type="primary" class="reply-link">回复</el-link>
+              <el-link
+                type="primary"
+                class="reply-link"
+                @click="item.temp = true"
+                >回复</el-link
+              >
+            </div>
+            <div class="open-reply-main" v-if="item.temp">
+              <div class="create-reply">
+                <div class="replyImg-small"></div>
+                <el-input
+                  type="textarea"
+                  :rows="3"
+                  placeholder="发表您的见解吧！"
+                  v-model="textarea"
+                  class="text-area"
+                >
+                </el-input>
+              </div>
+              <div class="reply-button-style">
+                <el-button size="small" round @click="item.temp = false"
+                  >取消回复</el-button
+                >
+                <el-button type="danger" size="small" round>发表评论</el-button>
+              </div>
             </div>
             <div v-if="item.reply != null" class="reply">
               <div v-for="something in item.reply" :key="something.id">
@@ -35,11 +59,45 @@
                   <div class="reply-list">
                     <div class="userImg-small"></div>
                     <span class="reply-username"
-                      >{{ something.submitUser }} 回复 {{ something.replyWhos }}:</span
+                      >{{ something.submitUser }} 回复
+                      {{ something.replyWhos }}:</span
                     >
-                    <span class="reply-content-style">{{ something.content }}</span>
-                    <span class="reply-time-style">{{ something.timestamp }}</span>
-                    <el-link type="primary" class="reply-link">回复</el-link>
+                    <span class="reply-content-style">{{
+                      something.content
+                    }}</span>
+                    <span class="reply-time-style">{{
+                      something.timestamp
+                    }}</span>
+                    <el-link
+                      type="primary"
+                      class="reply-link"
+                      @click="something.temp = true"
+                      >回复</el-link
+                    >
+                  </div>
+                  <div class="open-reply-list" v-if="something.temp">
+                    <div class="create-reply">
+                      <div class="replyImg-small"></div>
+                      <el-input
+                        type="textarea"
+                        :rows="3"
+                        placeholder="发表您的见解吧！"
+                        v-model="textarea"
+                        class="text-area"
+                      >
+                      </el-input>
+                    </div>
+                    <div class="reply-button-style">
+                      <el-button
+                        size="small"
+                        round
+                        @click="something.temp = false"
+                        >取消回复</el-button
+                      >
+                      <el-button type="danger" size="small" round
+                        >发表评论</el-button
+                      >
+                    </div>
                   </div>
                 </el-card>
               </div>
@@ -53,6 +111,9 @@
 
 <script>
 export default {
+  methods: {
+    replyAction() {},
+  },
   data() {
     return {
       commitTime: 1,
@@ -63,6 +124,7 @@ export default {
           content: "yes you are good",
           submitUser: "north",
           timestamp: "2018/4/12 20:46",
+          temp: false,
           reply: [
             {
               id: 1,
@@ -70,6 +132,7 @@ export default {
               submitUser: "bob",
               replyWhos: "north",
               timestamp: "2018/4/12 20:46",
+              temp: false,
             },
             {
               id: 2,
@@ -77,6 +140,7 @@ export default {
               submitUser: "alice",
               replyWhos: "bob",
               timestamp: "2018/4/12 20:46",
+              temp: false,
             },
           ],
         },
@@ -85,12 +149,14 @@ export default {
           content: "谢谢,很有帮助",
           submitUser: "nicolas",
           timestamp: "2018/4/12 20:46",
+          temp: false,
         },
         {
           id: 3,
           content: "谢谢,很有帮助",
           submitUser: "nicolas",
           timestamp: "2018/4/12 20:46",
+          temp: false,
           reply: [
             {
               id: 1,
@@ -98,6 +164,7 @@ export default {
               submitUser: "bob",
               replyWhos: "north",
               timestamp: "2018/4/12 20:46",
+              temp: false,
             },
             {
               id: 2,
@@ -105,6 +172,7 @@ export default {
               submitUser: "alice",
               replyWhos: "bob",
               timestamp: "2018/4/12 20:46",
+              temp: false,
             },
           ],
         },
@@ -113,6 +181,7 @@ export default {
           content: "谢谢,很有帮助",
           submitUser: "nicolas",
           timestamp: "2018/4/12 20:46",
+          temp: false,
         },
       ],
     };
@@ -145,6 +214,13 @@ export default {
   background: url("../../assets/user.jpeg") no-repeat center;
   background-size: 30px;
   margin-right: 10px;
+}
+.replyImg-small {
+  border-radius: 23px;
+  width: 46px;
+  height: 46px;
+  background: url("../../assets/reply.jpg") no-repeat center;
+  background-size: 46px;
 }
 .input-line {
   display: flex;
@@ -190,5 +266,22 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.create-reply {
+  display: flex;
+  flex-direction: row;
+}
+.reply-button-style {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.open-reply-main {
+  padding-left: 40px;
+}
+.open-reply-list {
+  padding-left: 40px;
+  padding-top: 20px;
 }
 </style>
