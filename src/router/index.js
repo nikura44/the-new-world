@@ -4,6 +4,8 @@ import NoteList from '../views/notes/NoteList.vue'
 import Content from '../views/notes/Content.vue'
 import nodeHome from '../views/notes/index.vue'
 import NoteView from '../views/notes/NoteView.vue'
+import WeChat from '../views/chat/WeChat.vue'
+
 Vue.use(VueRouter)
 
 const routes = [{
@@ -37,6 +39,11 @@ const routes = [{
       // }
     ]
   },
+  {
+    path: '/we_chat',
+    name: 'WeChat',
+    component: WeChat
+  }
 ]
 
 const router = new VueRouter({
